@@ -6,17 +6,12 @@
 #
 menu "CoAP"
 
-rsource "unicoap/Kconfig"
 rsource "Kconfig.coap"
+rsource "unicoap/Kconfig"
 rsource "gcoap/Kconfig"
 rsource "nanocoap/Kconfig"
 
 endmenu # CoAP
-
-rsource "cord/Kconfig"
-rsource "dhcpv6/Kconfig"
-rsource "dns/Kconfig"
-rsource "sock_dodtls/Kconfig"
 
 menu "MQTT-SN"
 
@@ -30,3 +25,12 @@ menu "Telnet"
 rsource "telnet/Kconfig"
 
 endmenu # Telnet
+
+menu "Misc"
+
+rsource "cord/Kconfig"
+rsource "dhcpv6/Kconfig"
+rsource "dns/Kconfig"
+rsource "sock_dodtls/Kconfig"
+
+endmenu # Misc
