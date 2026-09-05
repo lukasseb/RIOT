@@ -305,7 +305,7 @@ unicoap_status_t unicoap_response_status_from_errno(int _errno);
  * @brief Flags for enabling advanced features in server exchanges
  *
  * Specify these flags when creating a @ref unicoap_resource_t  to modify transmission,
- * block-wise, or resource observation behavior.
+ * block-wise, resource observation behavior, or OSCORE behavior.
  */
 typedef enum {
     /**
@@ -327,6 +327,15 @@ typedef enum {
      * would match a resource with this flag and path `/laniakea/milky-way`.
      */
     UNICOAP_RESOURCE_FLAG_MATCH_SUBTREE = 0x4000,
+
+    /**
+     * @brief Makes this resource only reachable by using OSCORE
+     *
+     * Example:
+     * A request with path `/laniakea/milky-way/solar-system/pluto`
+     * would match a resource with this flag and path `/laniakea/milky-way`.
+     */
+    UNICOAP_RESOURCE_FLAG_OSCORE = 0x5000,
 
     /* TODO: Advanced features */
 } unicoap_resource_flags_t;
@@ -417,6 +426,15 @@ struct unicoap_resource {
 
     /**
      * @brief Allowed transport protocols this resource can be reached over
+     *
+     * Use this property to, e.g., limit requests to encrypted transport protocols
+     *
+     * @see @ref unicoap_proto_set_t
+     */
+    unicoap_proto_set_t protocols;
+    
+    /**
+     * @brief Flag to 
      *
      * Use this property to, e.g., limit requests to encrypted transport protocols
      *

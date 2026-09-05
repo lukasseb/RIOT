@@ -46,6 +46,15 @@ ifneq (,$(filter unicoap_client_uri,$(USEMODULE)))
   USEMODULE += uri_parser
 endif
 
+ifneq (,$(filter unicoap_client_uri,$(USEMODULE)))
+  USEMODULE += uri_parser
+
+endif
+ifneq (,$(filter unicoap_oscore,$(USEMODULE)))
+  USEPKG += liboscore
+endif
+
+
 # This variable ensures the "Missing server" warning gets printed only once
 _UNICOAP_MISSING_SERVER ?= 0
 

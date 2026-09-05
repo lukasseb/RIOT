@@ -21,4 +21,8 @@ ifneq (,$(filter unicoap_client,$(USEMODULE)))
   DIRS += client
 endif
 
+ifneq (,$(filter unicoap_oscore,$(USEMODULE)))
+  DIRS += oscore
+endif
+
 include $(RIOTBASE)/Makefile.base

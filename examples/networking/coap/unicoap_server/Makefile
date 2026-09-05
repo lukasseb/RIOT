@@ -44,8 +44,9 @@ endif
 # Import unicoap
 USEMODULE += unicoap
 
-# Import sever submodule
+# Import server submodule
 USEMODULE += unicoap_server
+
 # Cross-file CoAP resource definitions
 USEMODULE += unicoap_server_resource_declarations
 
