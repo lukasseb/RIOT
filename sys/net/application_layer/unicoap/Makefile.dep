@@ -127,6 +127,20 @@ endif
 
 # MARK: unicoap_driver_extension_point
 
+ifneq (,$(filter unicoap_oscore,$(USEMODULE)))
+  # OSCORE builds on the unicoap message and option APIs
+  USEMODULE += unicoap
+
+  # libOSCORE itself
+  USEPKG += liboscore
+
+  # Native crypto primitives: ChaCha20-Poly1305, AES-CCM-16-64-128 and
+  # HMAC/HKDF-SHA-256
+  USEMODULE += crypto
+  USEMODULE += cipher_modes
+  USEMODULE += hashes
+endif
+
 ifneq (,$(filter unicoap_sock_support,$(USEMODULE)))
   USEMODULE += sock_async
   USEMODULE += sock_async_event
